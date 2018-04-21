@@ -1,0 +1,72 @@
+decent specs  works fine   just don t expect it to be in great shape or not smell 
+hardware   if you are looking for a decent  powerful workstation for normal desktop use  ie not gaming  then this is a good value  the i5 cpu in this machine is still plenty fast and you shouldn t have any problems with lag or speed  the 8gb of ram is also nice especially this cheap  these machines should be reliable for years to come but the included 5 year old seagate hard drive would give me pause  with any older machine you start to worry about the mechanical hard drive after a period of time   this is no different  i factored in the purchase of a 250gb ssd into this which makes the machine fly even faster anyway  overall this makes more sense  at least to me  than buying a new machine that s less powerful  condition  ok this is where things get dicey  the ad promises  and certified by the manufacturer or by a third party refurbisher to look and work like new  with limited to no signs of wear  ha  they are literally grabbing these things from expired leases  re imaging the drives with a default windows 10 and kicking them out the door   perhaps literally  sure the machine had scratches and nicks   a bit more than  normal  use but whatever  definitely not  like new   it also had a dented case   so bad the cover wouldn t close without having someone bend the latch to make it fit  it s going under the desk whatever i don t care but this is hardly a well cared for re manufacture this was done quick  cheap and dirty  what really got me though was the smell  out of the box this thing reeked of curry  it was so bad it made the entire room smell like an indian restaurant  it took me about 3 days of a combo of vinegar  baking soda and letting it  air  out to get the smell down to acceptable levels  obviously quality isn t a big concern here  bottom line  if you are looking for a cheap  decent desktop but don t care if it looks like it was kicked down the stairs then stored in a box chicken tikka for 6 months then you ll be ok 
+not delivered as advertised
+not as advertised i purchased this machine primarily because my previous hp machine that i had updated to windows 10 from windows 7  when ms was offering that free upgrade  started  hanging  every time ms issued an update  i could not seem to resolve that conflict  i was looking for a not too expensive route to get me back online with updates again  first off     let me say that the machine arrived in excellent condition  i wasn t disappointed there  once i finally got all my applications  favorites  utilities  etc  installed on this machine  everything seemed to function satisfactorily  now for the part where i downgrade my rating  this refurbished machine was advertised as having an intel core i5 processor as well as the windows 10  professional  edition os  it came with neither of these  the specs were one of the primary reasons i selected this machine  frankly i m surprised amazon allows this sort of  bait   switch  tactic  it s clearly false advertising   see my attachments  you can see what was advertised and what came delivered on the machine 
+weird happening 
+gave it three stars because the computer  out of the box  was plenty quick enough for what i had to do and looked to be in good shape  started getting weird when  after a couple of days  i was asked to register windows 10  when i went to register  microsoft said the the os in question was not valid and said to validate i had to pay for the full version  okay  i waited a couple of days and tried again  same thing  then it started to really get weird  i had another user listed as an administrator  one day when trying to log on her user name disappear entirely  i went through my log on and found  not her name  but an entirely different user name set up as an administrator  but didn t show up on the start up screen  i called amazon and they said send it back and sent me the prepaid return label  as an aside  please be careful when purchasing square trade warranty for refurbs  i was told by an amazon rep that square trade doesn t warranty refurbs and that sometimes it appears on screen in error because amazon s programming doesn t catch it 
+a good price  but check it out carefully when it arrives
+i had trouble with my refurbished unit right from the start and had to reinstall the windows operating system  then  repeated errors in the hard drive  after a couple of months i contacted the seller and they replaced the hard drive  though the hard drive i received was made in 2011  we ll see how this one does  i wanted a second desktop for music composing and publishing and this had what i needed  it s not my primary computer so it won t see as much action  a good price  it is very easy to access the internal components  one lift of the access lever and you re in  then everything either slides up or pops off  very convenient  even a novice could change the hard drive  given that the novice had some knowledge of things mechanical   thanks to the seller for following up with me quickly and standing behind their product  i realize that i should have contacted the seller immediately when it arrived to tell them of the necessity of reinstalling windows 
+came with 7 instead of 10
+3 star for a decent product  2 stars for seller  specs are good and a decent computer  lied about windows 10 though  it s got windows 7 pro installed  gonna see if i can activate windows 10 with the product number 
+i would recommend this machine for the price  but use a different supplier  not round sam 
+great machine for the price  however  did not come with keyboard and mouse as advertised and i got no response from roundsam  bought a video adapter for dmi cable and got no video output  not sure if it s the adapter or the motherboard  i had a video card in my old hp and plugged that into the graphics slot on motherboard then used my hdmi cable to monitor and everything worked great  don t ask for a five star rating if the product is not going come completely as advertised or if you haven t verified that everything works  your customer service can take the time to request a 5 star rating but they can t take the time to respond to customer complaints  thanks but no thanks 
+well the packaging was fine  product worked
+well the packaging was fine  product worked  i had to buy a wireless adapter because there are no wireless drivers  at the moment this product has a non genuine copy of windows  there was no product key in or on the box   
+but it looks like there is none as diver support for the hp    
+   hp does not support windows 10 for this device     my audio is randomly stopping  hitting  test  on the device enables sound again  my first step  after reinstalling the audio driver  was to update it  but it looks like there is none as diver support for the hp compaq elite 8300 sff stops at widows  8 
+works good  but a strange size and seems that it    
+works good  but a strange size and seems that it is an old model but upgraded internally  time will tell if worth them money  after receiving two of them i would have rather opted to purchase new 
+meh
+i bought 2 and they both have non stop hard drive chatter  they seem much slower than i expected for these specs  i ve bought refurb many times in the past and it was ok but these machines seemed like junk from the moment i took them out of the box  i ll run a long defrag and see if that helps the chatter but first impressions are not great 
+decent machine for the price but a few issues to    
+decent machine for the price but a few issues to bring to light    1   the hard drive was manufactured in 2011  2   cmos battery reports it s dead during post when it s turned back on from shut down  3   for some reason if multiple drives are plugged in it only recognises 1 drive
+while the price is great and it s works perfectly well
+while the price is great and it s works perfectly well  it wasn t cleaned externally at all  arrived covered in dust at dirt 
+very good pc for the price
+wasn t able to use the display port yet with dp2hdmi adapter  just vga  otherwise very good pc for the price 
+it does good except the power connect socket has some problem
+it does good except the power connect socket has some problem  i got the power cable in the position the computer likes and have it fixed in that position  as long as i dont touch the cable works good otherwise it shuts off 
+it works while it last  the only gripes i    
+it works while it last  the only gripes i had is that it didn t come with backup software in case you need to reboot  for the price  how can you complain 
+windows 7 not 10
+my only problem is it does not have windows 10 it has 7 on it everything else is fine
+nice  but they sent me a 6300  not an 8300
+i received this in a day  which was great  nicely packaged with a new keyboard and mouse  the processor and hard drive were as specified  and it included a windows 10 key  which worked just fine  but  it was an hp 6300 elite small form factor  not an 8300 as specified  for that reason  i m downgrading my review to three stars 
+not happy   lost time and revenue
+received refurbished system  power supply has a loud fan cavitation  245 windows updates later i was able to install paper port 14 pro   net framework 4 0 took forever to install due to missing updates  have not been able to use the system for 2 days since i have been trying to complete all the updates  i had to pull it from my clients office over the weekend to finish all the above bs  not happy   lost time and revenue 
+the pc worked great until it didn t
+the pc worked great until it didn t  i suddenly had a bunch of trouble with internet explorer freezing up  then it locked me out of outlook  after doing the recovery thing  all seems to be well  for now 
+three stars
+average inexpensive computer 
+came from canada  works well  not sure about  certified refurbished 
+was not obvious that this came from canada  was set up for canada locale settings  which i had to change to usa   keyboard was pretty horrible  and strangely laid out   mouse was decent enough  computer was clean  looking nearly new  missing a couple of pci slot covers on the back  i bought another of this same version from another company and it was obviously  microsoft certified refurbished   i had to register it with a special code on the computer   this one seemed like they pulled an image off the shelf  i m a little dubious of the certified refurbishiness of this one  overall  it s working and seems to be fine 
+three stars
+works well but refuses to enter into sleep mode when  asked  to do so 
+three stars
+great item for the price  the power supply went out within a week of having the device
+beware  the quality control may not be up to    
+beware  the quality control may not be up to par when they verify the components of these refurb machines before they go out the door  i ordered this one and it came with only 1 4gb dimm and the hard drive was not the 3tb advertised size  but  you re buying refurb so it s a gamble going in 
+keyboard was sticky
+the keyboard was very sticky  might be reconditioned but not cleaned 
+three stars
+short lived
+not as pictured
+it is just okay  it is not a high standing desk top as it was pictured  instead it lies flat with the monitor on top 
+three stars
+love the computer  however  i should wait until today  black friday  and get better deal     
+no wifi or bluetooth
+i wish the company had explained in the discription the tower had no features like wifi or bluetooth  i feel like these are standard features i did not receive  nor was i made aware of that 
+three stars
+disappointed it does not have an sims card port  
+three stars
+hardware fine some issues with the os
+three stars
+its slow and a little noisy 
+not just for business 
+perfect starter pc for an 8 year old  can play minecraft and other builder games  with some settings reduced  with great parental control including schedule control and notification  win 10   most importantly  it s not a chromebook  tablet  or some other reduced capacity machine 
+three stars
+just ok
+pc for employer
+not too snappy  but it does the job i bought it to do 
+planned i5 3470   1050ti  350 pc turned into a budget gaming pc nightmare 
+well coming from a amd athlon ii x2 220 with 4gb ram and ati hd 4200 integrated graphics this is better  however the power supply is 240 watts so sticking a 1050 ti in there is impossible and the latch is stuck on the handle to open the side panel  on a side note the only display i have access to uses vga which is old tech by now and i am lucky that it has a vga port but i would have prefered dvi which my monitor has  its a shame that this was supposed to be a  200 pc   a 1050ti so around  350 pc but the problems above stop this from being able to play the original skyrim at playable framerates  well atleast the hd i5 2500 integrated can play minecraft at 60fps at settings i have not seen since 2013 which is default settings and then some with optifine  well i am a idiot for not looking at the power supply specs and matched them to the 1050 ti s minimum  it is a great basic pc though  minus playing games 

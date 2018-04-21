@@ -53,20 +53,18 @@ def ParseReviews(asin):
   
 def ReadAsin():
   #Add your own ASINs here 
-  AsinList = ['B01AWOAUJY']
-  extracted_data = {5:'', 4:'', 3:'', 2:'', 1:''}
+  AsinList = ['B01AWOAUJY', 'B01CV9G1BO', 'B00IOTZGOE', 'B07BJMS28D']
+  extracted_data = dict()
   first = True
   for asin in AsinList:
     print("Downloading and processing page http://www.amazon.com/dp/"+asin)
     reviews = ParseReviews(asin)
-    for i in range(1,6):
-      extracted_data[i] += reviews[i]
+    extracted_data[asin] = reviews
     if first:
       first = False
     else:
       sleep(5. + random.random())
   pickle.dump(extracted_data, open('reviews.p', 'wb'))
-  print(extracted_data)
   
 
 if __name__ == '__main__':
