@@ -28,7 +28,7 @@ for product, product_reviews in raw_reviews.items():
     if '\n' in clean: print(clean)
     output_lines.append(''.join(clean))
     print(len(output_lines))
-with open('comparison_data/corpus.txt', 'w') as fout:
+with open('comparison_data/corpus.dat', 'w') as fout:
   for line in output_lines:
     fout.write( ''.join(line) + '\n')
 with open('comparison_data/queries.txt', 'w') as f:
