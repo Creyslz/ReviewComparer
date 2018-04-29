@@ -7,14 +7,8 @@ import pytoml
 
 
 def load_ranker(cfg_file):
-    """
-    Use this function to return the Ranker object to evaluate.
-
-    The parameter to this function, cfg_file, is the path to a
-    configuration file used to load the index. You can ignore this, unless
-    you need to load a ForwardIndex for some reason...
-    """
-    return metapy.index.OkapiBM25(k1=1.2,b=0.75,k3=500)
+    
+    return metapy.index.OkapiBM25(k1=2.5,b=0.75,k3=0.65)
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
@@ -25,7 +19,6 @@ if __name__ == '__main__':
     print('Building or loading index...')
     idx = metapy.index.make_inverted_index(cfg)
     ranker = load_ranker(cfg)
-    ##ev = metapy.index.IREval(cfg)
 
     with open(cfg, 'r') as fin:
         cfg_d = pytoml.load(fin)
@@ -35,19 +28,14 @@ if __name__ == '__main__':
         print("query-runner table needed in {}".format(cfg))
         sys.exit(1)
 
-    top_k = 100
+    top_k = 1
     query_path = query_cfg.get('query-path', 'queries.txt')
     query_start = query_cfg.get('query-id-start', 0)
-    query_num = int(sys.argv[3])
 
+    query = metapy.index.Document()
     print('Running queries')
     with open(query_path) as query_file:
-        for line in query_file:
-            query = metapy.index.Document()
+        for query_num, line in enumerate(query_file):
             query.content(line.strip())
-            res_num = 1
-            for doc in ranker.score(idx, query, top_k):
-                docnum = idx.metadata(doc[0].get('name'))
-                print"{}\t_\t{}\t{}\t{}\tMeTA".format( query_num, docnum,res_num, doc[1]))
-                res_num +=1
-            query_num +=1
+            results = ranker.score(idx, query, top_k)
+            print("{}\t{}\t{}".format(query_num, query.content(), results))
