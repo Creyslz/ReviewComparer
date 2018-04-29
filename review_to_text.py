@@ -25,12 +25,12 @@ for product, product_reviews in raw_reviews.items():
       lines[star_rating-1].append(current_line)
   for line in lines:
     clean = [s.replace('\n', '') for s in line]
-    if len(output_lines) == 3: print(clean)
-    output_lines.append(''.join(clean) + '\n')
+    if '\n' in clean: print(clean)
+    output_lines.append(''.join(clean))
     print(len(output_lines))
 with open('comparison_data/corpus.txt', 'w') as fout:
-  for line in lines:
-    fout.write( ''.join(output_lines) + '\n')
+  for line in output_lines:
+    fout.write( ''.join(line) + '\n')
 with open('comparison_data/queries.txt', 'w') as f:
   for word in all_words:
     f.write(word + '\n')
