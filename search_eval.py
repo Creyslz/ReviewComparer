@@ -28,14 +28,17 @@ if __name__ == '__main__':
         print("query-runner table needed in {}".format(cfg))
         sys.exit(1)
 
-    top_k = 1
+    top_k = 3
     query_path = query_cfg.get('query-path', 'queries.txt')
     query_start = query_cfg.get('query-id-start', 0)
 
+    f = open('result.txt','w')
     query = metapy.index.Document()
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
             query.content(line.strip())
             results = ranker.score(idx, query, top_k)
-            print("{}\t{}\t{}".format(query_num, query.content(), results))
+            a = "{}\t{}\t{}\n".format(query_num, query.content(), results)
+            f.write(a)
+    f.close()
