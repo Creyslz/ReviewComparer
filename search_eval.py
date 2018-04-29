@@ -32,13 +32,13 @@ if __name__ == '__main__':
     query_path = query_cfg.get('query-path', 'queries.txt')
     query_start = query_cfg.get('query-id-start', 0)
 
-    f = open('result.txt','w')
     query = metapy.index.Document()
+
+    result_file = open("ScoreResults.txt", "a")
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
             query.content(line.strip())
             results = ranker.score(idx, query, top_k)
-            a = "{}\t{}\t{}\n".format(query_num, query.content(), results)
-            f.write(a)
-    f.close()
+            result_file.write("{}\t{}\t{}\n".format(query_num, query.content(), results))
+    result_file.close()
