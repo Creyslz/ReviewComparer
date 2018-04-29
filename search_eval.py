@@ -45,6 +45,8 @@ if __name__ == '__main__':
 
     f = open('result.txt','w')
     query = metapy.index.Document()
+
+    result_file = open("ScoreResults.txt", "a")
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
@@ -65,3 +67,5 @@ if __name__ == '__main__':
 	    print("{}\t{}\t".format(xx+1,final_result[xx]))
 	else:
 	    print("{}\tNone".format(xx+1))
+            results = ranker.score(idx, query, top_k)
+            result_file.write("{}\t{}\t{}\n".format(query_num, query.content(), results))

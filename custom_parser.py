@@ -9,10 +9,14 @@ import pickle
 
 # Input:
 # asin, amazon product id
+# limit_pages, limits the number of pages of reviews to load
+# filter_by_rating, int representing the star rating of reviews to load
+#                   0 or other nonesense values result in all reviews loading
 # returns:
 # list of concatenated reviews for each star rating
-def ParseReviews(asin):
-  amazon_url_base  = 'http://www.amazon.com/product-reviews/' + asin + '/?pageNumber='
+def ParseReviews(asin, limit_pages = 25, filter_by_rating = 0):
+  stars = ['none', 'one_star', 'two_star', 'three_star', 'four_star', 'five_star']
+  amazon_url_base  = 'http://www.amazon.com/product-reviews/' + asin + '/?filterByStar=' + stars[filter_by_rating] + '&pageNumber='
   output = {5:'', 4:'', 3:'', 2:'', 1:''}
   
   headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
@@ -20,11 +24,11 @@ def ParseReviews(asin):
   page_number = 1
   first = True
   reviews = 1
-  while reviews:
+  while reviews and page_number <= limit_pages:
     if first:
       first = False
     else:
-      sleep(5. + random.random())
+      sleep(5. + random.random()) # Sleep between requests so Amazon doesn't ban me
     amazon_url = amazon_url_base + str(page_number)
     page_number += 1
     page = requests.get(amazon_url,headers = headers,verify=False)

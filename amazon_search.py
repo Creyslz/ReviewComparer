@@ -29,6 +29,7 @@ def ParseSearch(searchTerm):
   #print(reviews)
   for asin in results:
     print(asin.xpath('@data-asin'))
+    print(asin.xpath('.//h2[@class="a-size-medium s-inline  s-access-title  a-text-normal"]//text()'))
   return output
   
 def amazonSearch():
@@ -42,7 +43,6 @@ def amazonSearch():
       first = False
     else:
       sleep(5. + random.random())
-  #pickle.dump(extracted_data, open('reviews.p', 'wb'))
   
 
 if __name__ == '__main__':
