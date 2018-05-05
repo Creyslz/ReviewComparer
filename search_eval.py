@@ -10,8 +10,8 @@ def sort_score(result_list,n,total):
     ret = [None]*total
     for i in range(total):
         if bool(result_list[i]):
-	    x = OrderedDict(sorted(result_list[i].items(), key=operator.itemgetter(1), reverse=True)[:n])
-            ret[i]=list(x.keys())
+          x = OrderedDict(sorted(result_list[i].items(), key=operator.itemgetter(1), reverse=True)[:n])
+          ret[i]=list(x.keys())
     return ret
 
 def load_ranker(cfg_file):
@@ -49,14 +49,14 @@ def process(word_num):
             tok = metapy.analyzers.ICUTokenizer()
             tok.set_content(doc.content())
             tok = metapy.analyzers.Porter2Filter(tok)
-	    tokens = [token for token in tok]
+            tokens = [token for token in tok]
             query.content(str(tokens[1]).strip())            
-	    results = ranker.score(idx, query, top_k)
+            results = ranker.score(idx, query, top_k)
             for x in results:
-	        if bool(result_list[int(x[0])]):
-		    result_list[int(x[0])].update({str(query.content()): x[1]})
-                else:
-		    result_list[int(x[0])] = {str(query.content()): x[1]}
+              if bool(result_list[int(x[0])]):
+                result_list[int(x[0])].update({str(query.content()): x[1]})
+              else:
+                result_list[int(x[0])] = {str(query.content()): x[1]}
             a = "{}\t{}\t{}\n".format(query_num, query.content(), results)
             f.write(a)
     f.close()
