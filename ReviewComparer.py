@@ -6,6 +6,7 @@ from custom_parser import ParseReviews
 from phrase_processor import phrase_replace
 from time import sleep
 import urllib3
+from search_eval import process
 
 is_debug = False
 
@@ -14,9 +15,9 @@ def compare_reviews_from_search(search_term):
   if len(results) == 0:
     return 'No results found'
   sleep(5)
-  if len(results) < 5:
+  if len(results) < 4:
     return compare_reviews_from_list(results)
-  return compare_reviews_from_list(results[:5])
+  return compare_reviews_from_list(results[:4])
   
 def compare_reviews_from_list(asin_list):
   print(asin_list)
@@ -45,7 +46,7 @@ def compare_reviews_from_list(asin_list):
   with open('comparison_data/queries_t.txt', 'w') as f:
     for word in queries:
       f.write(word + '\n')
-  #do BM 25
+  process(5)
   return
   
 def main():
