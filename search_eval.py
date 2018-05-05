@@ -1,7 +1,6 @@
 import math
 import sys
 import time
-
 import metapy
 import pytoml
 import operator
@@ -19,13 +18,8 @@ def load_ranker(cfg_file):
     
     return metapy.index.OkapiBM25(k1=2.5,b=0.75,k3=0.65)
 
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: {} config.toml".format(sys.argv[0]))
-        sys.exit(1)
-
-    cfg = sys.argv[1]
-    print('Building or loading index...')
+def process(word_num):
+    cfg = "config.toml"
     idx = metapy.index.make_inverted_index(cfg)
     ranker = load_ranker(cfg)
 
@@ -44,13 +38,20 @@ if __name__ == '__main__':
     query_start = query_cfg.get('query-id-start', 0)
 
     f = open('result.txt','w')
+    query1 = metapy.index.Document()
     query = metapy.index.Document()
+##    tok = metapy.analyzers.ICUTokenizer()
 
     result_file = open("ScoreResults.txt", "a")
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
-            query.content(line.strip())
+            query1.content(line.strip())
+            tok = metapy.analyzers.ICUTokenizer()
+            tok.set_content(query1.content())
+            tok = metapy.analyzers.Porter2Filter(tok)
+	    tokens = [token for token in tok]
+            query.content(str(tokens[1]).strip())            
 	    results = ranker.score(idx, query, top_k)
             for x in results:
 	        if bool(result_list[int(x[0])]):
@@ -60,10 +61,19 @@ if __name__ == '__main__':
             a = "{}\t{}\t{}\n".format(query_num, query.content(), results)
             f.write(a)
     f.close()
-    final_result = sort_score(result_list,5,20)
+    final_result = sort_score(result_list,word_num,20)
     
     for xx in range(20):
         if bool(final_result[xx]):
 	    print("{}\t{}\t".format(xx+1,final_result[xx]))
 	else:
 	    print("{}\tNone".format(xx+1))
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Wrong command")
+        sys.exit(1)
+
+    word_num = sys.argv[1]
+    process(int(word_num))
