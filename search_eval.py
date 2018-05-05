@@ -38,16 +38,16 @@ def process(word_num):
     query_start = query_cfg.get('query-id-start', 0)
 
     f = open('result.txt','w')
-    query1 = metapy.index.Document()
+    doc = metapy.index.Document()
     query = metapy.index.Document()
 
     result_file = open("ScoreResults.txt", "a")
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
-            query1.content(line.strip())
+            doc.content(line.strip())
             tok = metapy.analyzers.ICUTokenizer()
-            tok.set_content(query1.content())
+            tok.set_content(doc.content())
             tok = metapy.analyzers.Porter2Filter(tok)
 	    tokens = [token for token in tok]
             query.content(str(tokens[1]).strip())            
