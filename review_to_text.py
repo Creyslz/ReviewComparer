@@ -8,12 +8,12 @@ def save_reviews(asin, stars, reviews):
   path = 'reviews/'
   file_name_base = '_reviews_rated_'
   with open(path + asin + file_name_base + str(stars) + '.txt', 'w') as f:
-    line = review.encode('ascii','ignore').decode("ascii")
-    line = line.lower()
-    translator = str.maketrans(string.punctuation, ' '*len(string.punctuation))
-    line = line.translate(translator)
-    f.write(line)
-  return line
+    f.write(reviews)
+
+def save_all_reviews(asin, reviews):
+  print(reviews)
+  for stars in range(1,6):
+    save_reviews(asin, stars, reviews[stars])
 
 def load_reviews(asin, stars):
   path = 'reviews/'
@@ -23,11 +23,37 @@ def load_reviews(asin, stars):
     output = f.readlines()
   return ' '.join(output)
 
+def load_all_reviews(asin):
+  output = dict()
+  for stars in range(1,6):
+    output[stars] = load_reviews(asin, stars)
+  return output
+  
+
 def get_unique_words(string):
   output = set()
   for word in string.split():
     output.add(word)
   return output
+  
+def clean_string(string):
+  line = string.encode('ascii','ignore').decode("ascii")
+  line = line.lower()
+  translator = str.maketrans(string.punctuation, ' '*len(string.punctuation))
+  line = line.translate(translator)
+  return line
+  
+def clean_all_strings(review_dict):
+  output = dict()
+  for star_rating, review in review_dict.items():
+    line = review.encode('ascii','ignore').decode("ascii")
+    line = line.lower()
+    translator = str.maketrans(string.punctuation, ' '*len(string.punctuation))
+    line = line.translate(translator)
+    output[star_rating] = line
+  return output
+  
+  
 
 if __name__ == '__main__':
   raw_reviews = pickle.load(open('reviews1.p', 'rb'))

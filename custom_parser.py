@@ -26,13 +26,11 @@ def ParseReviews(asin, limit_pages = 25, filter_by_rating = 0):
   reviews = 1
   #save names
   while reviews and page_number <= limit_pages:
-    if first:
-      first = False
-    else:
-      sleep(5. + random.random()) # Sleep between requests so Amazon doesn't ban me
+    print('Getting page ' + str(page_number) + ' of a possible ' + str(limit_pages) + '.')
     amazon_url = amazon_url_base + str(page_number)
     page_number += 1
     page = requests.get(amazon_url,headers = headers,verify=False)
+    sleep(5. + random.random()) # Sleep between requests so Amazon doesn't ban me
     page_response = page.text
 
     parser = html.fromstring(page_response)
@@ -60,15 +58,10 @@ def ReadAsin():
   #Add your own ASINs here 
   AsinList = ['B01AWOAUJY', 'B01CV9G1BO', 'B00IOTZGOE', 'B07BJMS28D']
   extracted_data = dict()
-  first = True
   for asin in AsinList:
     print("Downloading and processing page http://www.amazon.com/dp/"+asin)
     reviews = ParseReviews(asin)
     extracted_data[asin] = reviews
-    if first:
-      first = False
-    else:
-      sleep(5. + random.random())
   pickle.dump(extracted_data, open('reviews.p', 'wb'))
   
 
