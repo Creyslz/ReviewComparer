@@ -2,7 +2,6 @@ from lxml import html
 import json
 import requests
 import json,re
-from dateutil import parser as dateparser
 from time import sleep
 import random
 import pickle
