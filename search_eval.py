@@ -4,7 +4,16 @@ import time
 
 import metapy
 import pytoml
+import operator
+from collections import OrderedDict
 
+def sort_score(result_list,n,total):
+    ret = [None]*total
+    for i in range(total):
+        if bool(result_list[i]):
+	    x = OrderedDict(sorted(result_list[i].items(), key=operator.itemgetter(1), reverse=True)[:n])
+            ret[i]=list(x.keys())
+    return ret
 
 def load_ranker(cfg_file):
     
@@ -28,10 +37,13 @@ if __name__ == '__main__':
         print("query-runner table needed in {}".format(cfg))
         sys.exit(1)
 
-    top_k = 3
+    result_list = [None]*20
+    
+    top_k = 2
     query_path = query_cfg.get('query-path', 'queries.txt')
     query_start = query_cfg.get('query-id-start', 0)
 
+    f = open('result.txt','w')
     query = metapy.index.Document()
 
     result_file = open("ScoreResults.txt", "a")
@@ -39,6 +51,19 @@ if __name__ == '__main__':
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
             query.content(line.strip())
-            results = ranker.score(idx, query, top_k)
-            result_file.write("{}\t{}\t{}\n".format(query_num, query.content(), results))
-    result_file.close()
+	    results = ranker.score(idx, query, top_k)
+            for x in results:
+	        if bool(result_list[int(x[0])]):
+		    result_list[int(x[0])].update({str(query.content()): x[1]})
+                else:
+		    result_list[int(x[0])] = {str(query.content()): x[1]}
+            a = "{}\t{}\t{}\n".format(query_num, query.content(), results)
+            f.write(a)
+    f.close()
+    final_result = sort_score(result_list,5,20)
+    
+    for xx in range(20):
+        if bool(final_result[xx]):
+	    print("{}\t{}\t".format(xx+1,final_result[xx]))
+	else:
+	    print("{}\tNone".format(xx+1))
