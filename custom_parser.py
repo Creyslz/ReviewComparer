@@ -24,6 +24,7 @@ def ParseReviews(asin, limit_pages = 25, filter_by_rating = 0):
   page_number = 1
   first = True
   reviews = 1
+  #save names
   while reviews and page_number <= limit_pages:
     if first:
       first = False
