@@ -24,7 +24,7 @@ def compare_reviews_from_list(asin_list):
   queries = set()
   corpus_path = 'comparison_data/comparison_data.dat'
   if is_debug: corpus_path = 'comparison_data/comparison_data_t.dat'
-  with open('comparison_data/comparison_data_t.dat', 'w') as corpus:
+  with open(corpus_path, 'w') as corpus:
     for asin in asin_list:
       print('Loading reviews for ' + str(asin) + '. This can take up to three minutes.')
       #load names
@@ -43,7 +43,7 @@ def compare_reviews_from_list(asin_list):
       for word in new_line.split():
         queries.add(word)
       corpus.write(new_line + '\n')
-  with open('comparison_data/queries_t.txt', 'w') as f:
+  with open('comparison_data/queries.txt', 'w') as f:
     for word in queries:
       f.write(word + '\n')
   process(5)

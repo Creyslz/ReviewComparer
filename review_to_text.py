@@ -11,7 +11,7 @@ def save_reviews(asin, stars, reviews):
     f.write(reviews)
 
 def save_all_reviews(asin, reviews):
-  print(reviews)
+  #print(reviews)
   for stars in range(1,6):
     save_reviews(asin, stars, reviews[stars])
 
