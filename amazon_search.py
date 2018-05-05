@@ -28,8 +28,9 @@ def ParseSearch(searchTerm):
   results = parser.xpath(XPATH_RESULTS_SECTION)
   #print(reviews)
   for asin in results:
-    print(asin.xpath('@data-asin'))
-    print(asin.xpath('.//h2[@class="a-size-medium s-inline  s-access-title  a-text-normal"]//text()'))
+    asin = asin.xpath('@data-asin')
+    name = asin.xpath('.//h2[@class="a-size-medium s-inline  s-access-title  a-text-normal"]//text()')
+  output.append(asin)
   return output
   
 def amazonSearch():
