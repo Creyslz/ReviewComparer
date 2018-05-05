@@ -27,10 +27,12 @@ def ParseSearch(searchTerm):
   
   results = parser.xpath(XPATH_RESULTS_SECTION)
   #print(reviews)
-  for asin in results:
-    asin = asin.xpath('@data-asin')
-    name = asin.xpath('.//h2[@class="a-size-medium s-inline  s-access-title  a-text-normal"]//text()')
-  output.append(asin)
+  for asin_s in results:
+    asin = asin_s.xpath('@data-asin')
+    name = asin_s.xpath('.//h2[@class="a-size-medium s-inline  s-access-title  a-text-normal"]//text()')
+    print(asin, name)
+    if asin and name:
+      output.append(asin[0])
   return output
   
 def amazonSearch():
