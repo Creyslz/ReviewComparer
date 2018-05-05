@@ -5,6 +5,7 @@ import metapy
 import pytoml
 import operator
 from collections import OrderedDict
+import shutil
 
 def sort_score(result_list,n,total):
     ret = [None]*total
@@ -19,6 +20,7 @@ def load_ranker(cfg_file):
     return metapy.index.OkapiBM25(k1=2.5,b=0.75,k3=0.65)
 
 def process(word_num):
+    shutil.rmtree('index')
     cfg = "config.toml"
     idx = metapy.index.make_inverted_index(cfg)
     ranker = load_ranker(cfg)

@@ -8,7 +8,7 @@ from time import sleep
 import urllib3
 from search_eval import process
 
-is_debug = False
+is_debug = True
 
 def compare_reviews_from_search(search_term):
   results = ParseSearch(search_term)
@@ -23,16 +23,15 @@ def compare_reviews_from_list(asin_list):
   print(asin_list)
   queries = set()
   corpus_path = 'comparison_data/comparison_data.dat'
-  if is_debug: corpus_path = 'comparison_data/comparison_data_t.dat'
   with open(corpus_path, 'w') as corpus:
     for asin in asin_list:
       print('Loading reviews for ' + str(asin) + '. This can take up to three minutes.')
       #load names
       corpus_line = ''
-      if os.path.exists(asin + '_reviews_rated_1.txt'):
+      if not is_debug and os.path.exists(asin + '_reviews_rated_1.txt'):
         reviews = review_to_text.load_all_reviews(asin)
       else:
-        reviews = ParseReviews(asin, limit_pages = 5)
+        reviews = ParseReviews(asin, limit_pages = 1)
         reviews = review_to_text.clean_all_strings(reviews)
         review_to_text.save_all_reviews(asin, reviews)
       for star_rating, review in reviews.items():
@@ -40,10 +39,10 @@ def compare_reviews_from_list(asin_list):
         if '\n' in new_line:
           print('new lines found')
           new_line = new_line.replace('\n', ' ')
-      for word in new_line.split():
-        queries.add(word)
-      corpus.write(new_line + '\n')
-  with open('comparison_data/queries.txt', 'w') as f:
+        for word in new_line.split():
+          queries.add(word)
+        corpus.write(new_line + '\n')
+  with open('queries.txt', 'w') as f:
     for word in queries:
       f.write(word + '\n')
   process(5)
