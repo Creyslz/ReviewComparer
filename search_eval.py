@@ -40,7 +40,6 @@ def process(word_num):
     f = open('result.txt','w')
     query1 = metapy.index.Document()
     query = metapy.index.Document()
-##    tok = metapy.analyzers.ICUTokenizer()
 
     result_file = open("ScoreResults.txt", "a")
     print('Running queries')
@@ -62,12 +61,7 @@ def process(word_num):
             f.write(a)
     f.close()
     final_result = sort_score(result_list,word_num,20)
-    
-    for xx in range(20):
-        if bool(final_result[xx]):
-	    print("{}\t{}\t".format(xx+1,final_result[xx]))
-	else:
-	    print("{}\tNone".format(xx+1))
+    print(final_result)
 
 
 if __name__ == '__main__':
