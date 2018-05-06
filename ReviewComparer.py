@@ -13,6 +13,7 @@ import math
 is_debug = False
 kLimitPages = 10
 
+# 
 def compare_reviews_from_search(search_term):
   results = ParseSearch(search_term)
   if len(results) == 0:
@@ -35,7 +36,6 @@ def compare_reviews_from_list(asin_list):
     for asin in asin_list:
       max_time = str(math.ceil((kLimitPages + 1.)*5./60.))
       print('Loading reviews for '+str(asin)+'. This can take up to '+max_time+' minute(s).')
-      #load names
       corpus_line = ''
       name = asin
       if asin in asin_name:
@@ -52,7 +52,6 @@ def compare_reviews_from_list(asin_list):
         star_ratings.append(str(star_rating))
         new_line = phrase_replace(review)
         if '\n' in new_line:
-          #print('new lines found')
           new_line = new_line.replace('\n', ' ')
         for word in new_line.split():
           queries.add(word)
@@ -71,7 +70,7 @@ def compare_reviews_from_list(asin_list):
     else:
       print(star_ratings[i] + ' star(s): No reviews found.')
     i += 1
-  return
+  return results
   
 def main():
   # print command line arguments

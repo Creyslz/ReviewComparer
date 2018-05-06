@@ -1,2 +1,4 @@
 *.pyc
 index/*
+queries.txt
+comparison_data/comparison_data.dat
