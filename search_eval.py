@@ -6,6 +6,7 @@ import pytoml
 import operator
 from collections import OrderedDict
 import shutil
+import os.path
 
 def sort_score(result_list,n,total):
     ret = [None]*total
@@ -19,8 +20,9 @@ def load_ranker(cfg_file):
     
     return metapy.index.OkapiBM25(k1=2.5,b=0.75,k3=0.65)
 
-def process(word_num):
-    shutil.rmtree('index')
+def process(reviews, word_num = 5):
+    if os.path.exists('index'):
+        shutil.rmtree('index')
     cfg = "config.toml"
     idx = metapy.index.make_inverted_index(cfg)
     ranker = load_ranker(cfg)
@@ -33,7 +35,7 @@ def process(word_num):
         print("query-runner table needed in {}".format(cfg))
         sys.exit(1)
 
-    result_list = [None]*20
+    result_list = [None]*reviews
     
     top_k = 2
     query_path = query_cfg.get('query-path', 'queries.txt')
@@ -43,7 +45,7 @@ def process(word_num):
     doc = metapy.index.Document()
     query = metapy.index.Document()
 
-    result_file = open("ScoreResults.txt", "a")
+    #result_file = open("ScoreResults.txt", "a")
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
@@ -62,8 +64,8 @@ def process(word_num):
             a = "{}\t{}\t{}\n".format(query_num, query.content(), results)
             f.write(a)
     f.close()
-    final_result = sort_score(result_list,word_num,20)
-    print(final_result)
+    final_result = sort_score(result_list,word_num,reviews)
+    return final_result
 
 
 if __name__ == '__main__':

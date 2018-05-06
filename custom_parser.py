@@ -29,7 +29,7 @@ def ParseReviews(asin, limit_pages = 25, filter_by_rating = 0):
     amazon_url = amazon_url_base + str(page_number)
     page_number += 1
     page = requests.get(amazon_url,headers = headers,verify=False)
-    sleep(5. + random.random()) # Sleep between requests so Amazon doesn't ban me
+    sleep(5. + random.random()*.5) # Sleep between requests so Amazon doesn't ban me
     page_response = page.text
 
     parser = html.fromstring(page_response)
