@@ -18,7 +18,7 @@ python ReviewComparer.py asin1 asin2 asin3 ... (for an arbitrary number of asin'
 ```
 This will compare the products of the given asin's.
 
-Asin stands for Amazon standard identification number
+Asin stands for Amazon standard identification number.
 Asin's are 10 character codes that can be found in every amazon product url
 ```
                                                                         This part
@@ -34,10 +34,10 @@ B00IOTZGOE
 B07BJMS28D
 ```
 
-The expected output is of the form
-generated using
+Example output
+```
 python ReviewComparer.py "blender"
-
+```
 ```
 Results for Ninja Professional Blender (BL610):
 5 star(s): ['sharp', 'up_to_th', 'yes', 'margarita', 'later']
