@@ -46,8 +46,8 @@ def get_unique_words(string):
 # saves so future lookups don't have to query amazon
 # input is a single string
 # returns the cleaned review  
-def clean_string(string):
-  line = string.encode('ascii','ignore').decode("ascii")
+def clean_string(in_string):
+  line = in_string.encode('ascii','ignore').decode("ascii")
   line = line.lower()
   translator = str.maketrans(string.punctuation, ' '*len(string.punctuation))
   line = line.translate(translator)

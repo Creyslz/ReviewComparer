@@ -30,30 +30,29 @@ generated using
 python ReviewComparer.py "blender"
 
 Results for Ninja Professional Blender (BL610):
-5 star(s): ['sharp', 'yes', 'later', 'margarita', 'snow']
-4 star(s): ['vita', 'finger', 'sharp', 'battl', 'compat']
-3 star(s): ['chia', 'catch', 'five', 'tier', 'graini']
-2 star(s): ['bp', 'ave', 'form', 'crack', 'worked_great']
-1 star(s): ['zero', 'shelf', 'clip', 'crack', 'useless']
+5 star(s): ['sharp', 'up_to_th', 'yes', 'margarita', 'later']
+4 star(s): ['vita', 'finger', 'reli', 'battl', 'minc']
+3 star(s): ['buy_it_again', 'chia', 'catch', 'but_i_wouldn_t', 'graini']
+2 star(s): ['bp', 'because_i_h', 'have_to_do_that', 'worked_great', 'ave']
+1 star(s): ['let_m', 'shelf', 'clip', 'blender_i_have_ev', 'blender_for_what_you_pay']
 Results for Hamilton Beach (52400) Blender with 32 Oz Jar, For:
-5 star(s): ['milkshak', 'mini', 'sleek', 'curri', 'fund']
-4 star(s): ['bottl', 'switch', 'aspect', 'vendor', 'yoghurt']
-3 star(s): ['bonus', 'suck', 'insecur', 'crevic', 'chopper']
-2 star(s): ['luck', 'mason', 'weird', 'someone_ind', 'stinki']
-1 star(s): ['smoke', 'wast', 'peach', 'fire', 'the_only_thing_it']
+5 star(s): ['me_and', 'milkshak', 'mini', 'sleek', 'is_awesom']
+4 star(s): ['bottl', 'while_it', 'while_it_', 'switch', 'shred']
+3 star(s): ['with_this_item', 'however_the_blad', 'bonus', 'not_veri', 'suck']
+2 star(s): ['i_m_sure_it_', 'not_very_happy_with_thi', 'blender_for_about_3_month', 'luck', 'this_was_a_great_littl']
+1 star(s): ['not_recommend', 'smoke', 'about_the_only_thing_it_is_good_for', 'that_someday_i_wil', 'and_got']
 Results for Nutri Ninja Pro Blender, Silver (BL456):
-5 star(s): ['recip', 'book', 'eat', 'common', 'pro']
-4 star(s): ['overtighten', 'dirt', 'glitch', 'nutribullet', 'twist']
-3 star(s): ['corrug', 'chainsaw', 'heck', 'planet', 'encount']
-2 star(s): ['sharkninja', 'to_play', 'everyone_in', 'polici', 'pro']
-1 star(s): ['dead', 'lousi', 'condit', 'spark', 'so_into']
+5 star(s): ['recip', 'book', 'eat', 'drive', 'love_it_']
+4 star(s): ['the_bullet', 'overtighten', 'give_this_product', 'glitch', 'frozen_fruits_and_it_shr']
+3 star(s): ['corrug', 'chainsaw', 'heck', 'encount', 'have_yet_to']
+2 star(s): ['sharkninja', 'the_unit', 'and_now_i_have_to_play', 'i_mad', 'i_purchased_this_item']
+1 star(s): ['dead', 'lousi', 'but_the_motor', 'condit', 'spark']
 Results for BLACK+DECKER Countertop Blender with 5-Cup Glass J:
-5 star(s): ['works_great_and', 'very_pleased_with', 'great_valu', 'great_buy', 'surpass']
-4 star(s): ['four_star', 'splater', 'ding', 'strongest', 'time_it']
-3 star(s): ['macho', 'flake', 'smart', 'than_it', 'thing_in']
-2 star(s): ['stall', 'dis', 'satisifi', 'ridg', 'i_tried_to']
-1 star(s): ['deck', 'siev', 'er', 'disast', 'doesn_t_even']
-
+5 star(s): ['i_got_it_for_mi', 'every_day_and_it_s_stil', 'dad', 'and_i_dont', 'crank']
+4 star(s): ['four_star', 'exactly_what_i_thought', 'great_but_it', 'i_like_the_best', 'great_blender_for_the_money']
+3 star(s): ['not_as_good_as_a', 'of_their', 'macho', 'you_have_to_be_veri', 'while_it_do']
+2 star(s): ['that_it_does_not', 'caus', 'on_the_blend', 'do_a_very_good_job', 'languag']
+1 star(s): ['was_not', 'deck', 'siev', 'of_them', 'brand_and_th']
 
 
 Note that Amazon lacks an official API to grab their reviews so we get all of our reviews from scraping their website. This can take some time due to sleep statements that we have purposely placed between queries to amazon in order to prevent getting ratelimited by their website. We also limit the number of reviews we scrape for each product to the top 100 most useful as rated by amazon, but this can be changed by altering kLimitPages in ReviewComparer.py 
