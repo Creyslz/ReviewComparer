@@ -3,13 +3,19 @@ To compare reviews on amazon using data mining.
 
 Usage
 Clone the repository and then run
+```
 python ReviewComparer.py "product search term"
+```
 eg
+```
 python ReviewComparer.py "laptop computer"
+```
 This will compare the top 4 results for the given search term.
 
 or
+```
 python ReviewComparer.py asin1 asin2 asin3 ... (for an arbitrary number of asin's)
+```
 This will compare the products of the given asin's.
 
 Asin stands for Amazon standard identification number
