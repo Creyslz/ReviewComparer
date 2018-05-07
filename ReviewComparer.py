@@ -10,10 +10,16 @@ from search_eval import process
 import pickle
 import math
 
+# debug mode will cause the program to ignore cached reviews
 is_debug = False
+
+# each reviews page has 10 reviews
+# thus this limits the number of reviews scraped to kLimitPages * 10
+# for each product
 kLimitPages = 10
 
-# 
+# Takes a search query and grabs the first four results from amazon
+# passes the asin's of the results to compare_reviews_from_list
 def compare_reviews_from_search(search_term):
   results = ParseSearch(search_term)
   if len(results) == 0:
@@ -22,7 +28,10 @@ def compare_reviews_from_search(search_term):
   if len(results) < 4:
     return compare_reviews_from_list(results)
   return compare_reviews_from_list(results[:4])
-  
+
+# Given a list of amazon product asin's (Amazon standard identification numbers)
+# prints each item and star rating pair along with the phrases that mostly correlate 
+# with them.
 def compare_reviews_from_list(asin_list):
   print(asin_list)
 
@@ -32,6 +41,8 @@ def compare_reviews_from_list(asin_list):
   star_ratings = []
   queries = set()
   corpus_path = 'comparison_data/comparison_data.dat'
+  # save all of the reviews of each product, star rating pair on a line
+  # for consumption by metapy
   with open(corpus_path, 'w') as corpus:
     for asin in asin_list:
       max_time = str(math.ceil((kLimitPages + 1.)*5./60.))
@@ -56,11 +67,13 @@ def compare_reviews_from_list(asin_list):
         for word in new_line.split():
           queries.add(word)
         corpus.write(new_line + '\n')
+  # save queries
   with open('queries.txt', 'w') as f:
     for word in queries:
       f.write(word + '\n')
+  # Perform BM25 using metapy
   results = process(len(asin_list) * 5)
-  #print(results)
+  # print results
   i = 0
   for row in results:
     if i%5 == 0:
@@ -72,6 +85,7 @@ def compare_reviews_from_list(asin_list):
     i += 1
   return results
   
+
 def main():
   # print command line arguments
   result = ''

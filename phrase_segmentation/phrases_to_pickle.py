@@ -1,5 +1,8 @@
 import pickle
 
+# Converts the list of multi-word phrases returned by autophrase 
+# into a set that is pickled for easy access
+
 phrases = set()
 
 with open('AutoPhrase_multi-words.txt', 'r') as text:

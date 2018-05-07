@@ -7,9 +7,10 @@ import random
 import pickle
 
 # Input:
-# asin, amazon product id
+# A search term
 # returns:
-# list of concatenated reviews for each star rating
+# list of asin's 
+# This function also updates the asin, product name dictionary
 def ParseSearch(searchTerm):
   try:
     asin_name_dict = pickle.load(open('reviews/asin_name_dict.p', 'rb'))

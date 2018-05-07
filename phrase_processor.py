@@ -1,11 +1,12 @@
 import pickle
 
-# phrases are found by running https://github.com/shangjingbo1226/AutoPhrase
+# multi-word phrases are found by running https://github.com/shangjingbo1226/AutoPhrase
 # on all of the cached reviews. This is done manually and phrases are saved
 # into a pickle file.
 
 
-
+# takes an input string and finds all multi-word phrases
+# replaces the spaces in those strings with underscores
 def phrase_replace(input_string):
   phrases = set()
   output = input_string
