@@ -14,7 +14,7 @@ This will compare the top 4 results for the given search term.
 
 or
 ```
-python ReviewComparer.py ASIN1 ASIN2 ASIN3 ... (for an arbitrary number of ASIN's)
+python ReviewComparer.py -l ASIN1 ASIN2 ASIN3 ... (for an arbitrary number of ASIN's)
 ```
 This will compare the products of the given ASIN's.
 
