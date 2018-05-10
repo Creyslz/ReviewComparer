@@ -8,7 +8,7 @@ from collections import OrderedDict
 import shutil
 import os.path
 
-# sort the score for each query from high to low
+# sort the score of each query from high to low and choose the top 5
 def sort_score(result_list,n,total):
     ret = [None]*total
     for i in range(total):
@@ -21,7 +21,7 @@ def sort_score(result_list,n,total):
 def load_ranker(cfg_file):
     return metapy.index.OkapiBM25(k1=2.5,b=0.75,k3=0.65)
 
-# read queries, estimate them with the data and print results
+# read queries, estimate them with the gathered review data and print the results
 def process(reviews, word_num = 5):
     if os.path.exists('index'):
         shutil.rmtree('index')
@@ -50,7 +50,7 @@ def process(reviews, word_num = 5):
     doc = metapy.index.Document()
     query = metapy.index.Document()
 
-    # calculate and store assessment data
+    # calculate score for each query and store the assessment data
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
@@ -70,6 +70,7 @@ def process(reviews, word_num = 5):
             a = "{}\t{}\t{}\n".format(query_num, query.content(), results)
             f.write(a)
     f.close()
+    # detemine the top 5 as the results
     final_result = sort_score(result_list,word_num,reviews)
     return final_result
 
@@ -79,6 +80,6 @@ if __name__ == '__main__':
         print("Wrong command")
         sys.exit(1)
 
-    # get words number
+    # get words number needed for each review level of a product
     word_num = sys.argv[1]
     process(int(word_num))
