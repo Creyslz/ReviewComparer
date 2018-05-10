@@ -8,6 +8,7 @@ from collections import OrderedDict
 import shutil
 import os.path
 
+# sort the score for each query from high to low
 def sort_score(result_list,n,total):
     ret = [None]*total
     for i in range(total):
@@ -16,14 +17,17 @@ def sort_score(result_list,n,total):
           ret[i]=list(x.keys())
     return ret
 
+# implement metapy BM25 method
 def load_ranker(cfg_file):
-    
     return metapy.index.OkapiBM25(k1=2.5,b=0.75,k3=0.65)
 
+# read queries, estimate them with the data and print results
 def process(reviews, word_num = 5):
     if os.path.exists('index'):
         shutil.rmtree('index')
     cfg = "config.toml"
+
+    # create index & set configuration(including stop words)
     idx = metapy.index.make_inverted_index(cfg)
     ranker = load_ranker(cfg)
 
@@ -37,6 +41,7 @@ def process(reviews, word_num = 5):
 
     result_list = [None]*reviews
     
+    # read queries
     top_k = 2
     query_path = query_cfg.get('query-path', 'queries.txt')
     query_start = query_cfg.get('query-id-start', 0)
@@ -45,11 +50,12 @@ def process(reviews, word_num = 5):
     doc = metapy.index.Document()
     query = metapy.index.Document()
 
-    #result_file = open("ScoreResults.txt", "a")
+    # calculate and store assessment data
     print('Running queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
             doc.content(line.strip())
+            # filtrate stemming
             tok = metapy.analyzers.ICUTokenizer()
             tok.set_content(doc.content())
             tok = metapy.analyzers.Porter2Filter(tok)
@@ -67,11 +73,12 @@ def process(reviews, word_num = 5):
     final_result = sort_score(result_list,word_num,reviews)
     return final_result
 
-
+# main
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Wrong command")
         sys.exit(1)
 
+    # get words number
     word_num = sys.argv[1]
     process(int(word_num))
