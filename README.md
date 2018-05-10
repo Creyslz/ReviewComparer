@@ -14,12 +14,12 @@ This will compare the top 4 results for the given search term.
 
 or
 ```
-python ReviewComparer.py asin1 asin2 asin3 ... (for an arbitrary number of asin's)
+python ReviewComparer.py ASIN1 ASIN2 ASIN3 ... (for an arbitrary number of ASIN's)
 ```
-This will compare the products of the given asin's.
+This will compare the products of the given ASIN's.
 
-Asin stands for Amazon standard identification number.
-Asin's are 10 character codes that can be found in every amazon product url
+ASIN stands for Amazon Standard Identification Number.
+ASIN's are 10 character codes that can be found in every Amazon product url
 ```
                                                                         This part
                                                                         |        |    
@@ -65,6 +65,26 @@ Results for BLACK+DECKER Countertop Blender with 5-Cup Glass J:
 1 star(s): ['was_not', 'deck', 'siev', 'of_them', 'brand_and_th']
 ```
 
+Implemented with BM25 method imported from Metapy, Search-eval provides a list of top five words(queries) with highest ranking scores corresponding to each corpus, incorporating with stop-words removal and stemming filter to avoid common words, numbers and words with same roots. The third argument is the number of words you hope to get for each review corpus.
+
+Usage
+```
+python search_eval.py word_num
+```
+Example 1
+```
+python search_eval.py 5
+```
+```
+[['vitamix', 'food', 'pulver', 'lock', 'blade'], ['vita', 'heat', 'dull', 'fiber', 'sharp'], None, None, ['clip', 'broken', 'broke', 'warranti', 'explod'], ['18oz', '24oz', 'oz', '32oz', '16oz'], ['attach', 'small', 'milk', 'aspect', 'touch'], None, ['weird', 'fli', 'burnt', 'usual', 'explod'], ['ad', 'turn', 'move', 'got', 'if_it'], ['seal', 'common', 'recip', 'pro', 'nutri'], ['dirt', 'hi', 'ur', 'cool', 'fabric'], ['packag', 'corrug', 'box', 'amazon', 'planet'], ['the_unit', 'unit', 'to_se', 'abil', 'strip'], ['plan', 'rubber', 'smell', 'nutri', '2nd'], ['great_valu', 'thick', 'loosen', 'slip', 'ici'], ['consist', 'shake', 'ding', 'time_it', 'coconut'], ['macho', 'expect', 'tool', 'loud', 'cheap'], None, ['applianc', 'die', 'the_box', 'proper', ‘dollar']]
+```
+Example 2
+```
+python search_eval.py 10
+```
+```
+[['vitamix', 'food', 'pulver', 'lock', 'blade', 'click', 'pour', 'ninja', 'cleanli', 'clean'], ['vita', 'heat', 'dull', 'fiber', 'sharp', 'notic', 'veggi', 'reli', 'appl', 'comparison'], None, None, ['clip', 'broken', 'broke', 'warranti', 'explod', 'defect', 'pay', 'state', 'usag', 'lock'], ['18oz', '24oz', 'oz', '32oz', '16oz', 'shake', 'kid', 'milkshak', 'fashion', 'opportun'], ['attach', 'small', 'milk', 'aspect', 'touch', 'lot', 'option', 'switch', 'power', 'ingredi'], None, ['weird', 'fli', 'burnt', 'usual', 'explod', 'smoke', 'a_month', 'start', 'morn', 'piec'], ['ad', 'turn', 'move', 'got', 'if_it', 'back', 'the_first', 'wast', 'middl', 'mother'], ['seal', 'common', 'recip', 'pro', 'nutri', 'almond', 'review', 'this_product', 'fill', 'good'], ['dirt', 'hi', 'ur', 'cool', 'fabric', 'explain', 'mark', 'black', 'came', 'color'], ['packag', 'corrug', 'box', 'amazon', 'planet', 'shop', 'less_than_idea', 'seven', 'larger', 'able_to_mak'], ['the_unit', 'unit', 'to_se', 'abil', 'strip', 'did_not', 'told', 'was_not', 'sale', 'unfortun'], ['plan', 'rubber', 'smell', 'nutri', '2nd', 'protect', 'fool', 'manufactur', 'the_compani', 'serial'], ['great_valu', 'thick', 'loosen', 'slip', 'ici', 'strength', 'to_settl', 'whirlpool', 'the_qual', 'gear'], ['consist', 'shake', 'ding', 'time_it', 'coconut', 'delici', 'scrub', 'handl', 'hundr', 'strongest'], ['macho', 'expect', 'tool', 'loud', 'cheap', 'leak', 'basic', 'job', 'super', 'bueno'], None, ['applianc', 'die', 'the_box', 'proper', 'dollar', 'arriv', 'understat', 'dishrag', 'quit', ‘cream']]
+```
 
 Note that Amazon lacks an official API to grab their reviews so we get all of our reviews from scraping their website. This can take some time due to sleep statements that we have purposely placed between queries to amazon in order to prevent getting ratelimited by their website. We also limit the number of reviews we scrape for each product to the top 100 most useful as rated by amazon, but this can be changed by altering kLimitPages in ReviewComparer.py 
 
@@ -81,7 +101,4 @@ cshang4, jianing2, siqig2 (@illinois.edu)
 Amazon scraping and phrase mining was done by cshang4.
 
 Implementing BM25 and interpreting the results was done by jianing2 and siqig2.
-
-
-
 
