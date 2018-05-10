@@ -65,6 +65,7 @@ Results for BLACK+DECKER Countertop Blender with 5-Cup Glass J:
 1 star(s): ['was_not', 'deck', 'siev', 'of_them', 'brand_and_th']
 ```
 
+# search_eval
 Implemented with BM25 method imported from Metapy, Search-eval provides a list of top five words(queries) with highest ranking scores corresponding to each corpus, incorporating with stop-words removal and stemming filter to avoid common words, numbers and words with same roots. The third argument is the number of words you hope to get for each review corpus.
 
 Usage
